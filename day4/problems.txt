@@ -1,0 +1,9 @@
+https://algoprep.wordpress.com/2015/08/25/daily-interivew-4/
+
+Topic – Arrays and Strings
+
+Questions:
+
+    Write code to find the nth largest element in an Integer Array. Example: Input = {5,2,4,7,1} and n = 2, then Output = 5.
+    Check if two strings are anagrams or not. Example: “listen” is an anagram of “silent”.
+
