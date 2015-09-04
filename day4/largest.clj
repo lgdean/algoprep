@@ -1,6 +1,8 @@
 (ns largest
   (:require [clojure.test :refer :all]))
 
+;; no claim of good performance or good code here; just messing around.
+
 (defn do-insert
   [x sorted-vals]
   (cond (empty? sorted-vals) (list x)
