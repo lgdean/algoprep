@@ -19,10 +19,10 @@
 
 (deftest pal-permute-test
   (testing "should handle simplest case"
-    (is (= true (pal-permutation? "a")))
-    (is (= true (pal-permutation? ""))))
+    (is (true? (pal-permutation? "a")))
+    (is (true? (pal-permutation? ""))))
   (testing "but not everything"
-    (is (= false (pal-permutation? "ab")))))
+    (is (false? (pal-permutation? "ab")))))
 
 ;; TODO handle spaces.  (and apparently also punctuation and case?)
 
