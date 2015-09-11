@@ -22,7 +22,13 @@
     (is (true? (pal-permutation? "a")))
     (is (true? (pal-permutation? ""))))
   (testing "but not everything"
-    (is (false? (pal-permutation? "ab")))))
+    (is (false? (pal-permutation? "ab"))))
+  (testing "a classic (with spaces that should not matter)"
+    (is (true? (pal-permutation? "able was i ere i saw elba")))
+    (is (true? (pal-permutation? "able was i  ere i saw elba"))))
+  (testing "another classic (with spaces)"
+    (is (true? (pal-permutation? "a man a plan a canal panama"))))
+  )
 
 ;; TODO handle spaces.  (and apparently also punctuation and case?)
 
