@@ -14,7 +14,7 @@
              (disj acc letter)
              (conj acc letter)))
          #{} ; this is an empty hash set
-         s)]
+         (remove #(contains? #{\ } %) s))]
     (<= (count spare-letters) 1)))
 
 (deftest pal-permute-test
