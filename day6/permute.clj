@@ -17,6 +17,16 @@
          (remove #(contains? #{\  \, \! \.} %) s))]
     (<= (count spare-letters) 1)))
 
+;; pseudo-code in imperative style:
+;; create an empty hash set (to be used for letters).
+;; for each letter in input:
+;;   if it's a space or punctuation, ignore;
+;;   otherwise, check membership in the set of letters.
+;;     if it's in the set, remove it.
+;;     otherwise, it's not in the set, so add it.
+;; now check the size of the set of letters.
+;;   return true if it has 0 or 1 elements (otherwise false).
+
 (deftest pal-permute-test
   (testing "should handle simplest case"
     (is (true? (pal-permutation? "a")))
@@ -30,7 +40,7 @@
     (is (true? (pal-permutation? "mana, a nalp. a canal, panama!"))))
   )
 
-;; TODO handle spaces.  (and apparently also punctuation and case?)
+;; TODO maybe handle other punctuation; make it case-insensitive
 
 (run-tests)
 
