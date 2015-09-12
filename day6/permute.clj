@@ -14,7 +14,7 @@
              (disj acc letter)
              (conj acc letter)))
          #{} ; this is an empty hash set
-         (remove #(contains? #{\ } %) s))]
+         (remove #(contains? #{\  \, \! \.} %) s))]
     (<= (count spare-letters) 1)))
 
 (deftest pal-permute-test
@@ -26,8 +26,8 @@
   (testing "a classic (with spaces that should not matter)"
     (is (true? (pal-permutation? "able was i ere i saw elba")))
     (is (true? (pal-permutation? "able was i  ere i saw elba"))))
-  (testing "another classic (with spaces)"
-    (is (true? (pal-permutation? "a man a plan a canal panama"))))
+  (testing "another classic (with punctuation)"
+    (is (true? (pal-permutation? "mana, a nalp. a canal, panama!"))))
   )
 
 ;; TODO handle spaces.  (and apparently also punctuation and case?)
