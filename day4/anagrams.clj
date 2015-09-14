@@ -5,7 +5,7 @@
 
 (defn anagrams?
   [one other]
-  true)
+  (= (.length one) (.length other)))
 
 (deftest anagrams-test
   (testing "empty strings, yes"
