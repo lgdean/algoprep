@@ -1,4 +1,5 @@
 (ns permute
+  (:use [clojure.string :only (lower-case)])
   (:require [clojure.test :refer :all]))
 
 ;; problem 1 of https://algoprep.wordpress.com/2015/08/28/daily-interview-6/
@@ -14,7 +15,7 @@
              (disj acc letter)
              (conj acc letter)))
          #{} ; this is an empty hash set
-         (remove #(contains? #{\  \, \! \.} %) s))]
+         (remove #(contains? #{\  \, \! \.} %) (lower-case s)))]
     (<= (count spare-letters) 1)))
 
 ;; pseudo-code in imperative style:
@@ -36,11 +37,13 @@
   (testing "a classic (with spaces that should not matter)"
     (is (true? (pal-permutation? "able was i ere i saw elba")))
     (is (true? (pal-permutation? "able was i  ere i saw elba"))))
+  (testing "a classic (with uppercase)"
+    (is (true? (pal-permutation? "able was i ere i saw Elba"))))
   (testing "another classic (with punctuation)"
     (is (true? (pal-permutation? "mana, a nalp. a canal, panama!"))))
   )
 
-;; TODO maybe handle other punctuation; make it case-insensitive
+;; TODO maybe handle other punctuation
 
 (run-tests)
 
